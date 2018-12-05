@@ -1,0 +1,172 @@
+body{
+    background-color:#4a525a;
+}
+
+*{
+    color: white;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16pt;
+    padding: 5px;   
+}
+image{
+    max-width: 100%;
+}
+h1{
+    font-size: 24pt; 
+    background-color: #05668d;
+    padding: 10px;
+    border-bottom: solid thick #06d6a0;
+    border-left: solid thick white;
+}
+h2{
+    background-color: #05668d;
+    font-size: 24pt;
+    border-bottom: solid thick #06d6a0;
+    border-left: solid thick white;
+} 
+span{
+    background-color: #05668d;
+    font-size: 20pt;
+    border-bottom: solid thick #06d6a0;
+    border-left: solid thick white;
+}
+nav ol li{
+    font-variant: small-caps;
+    display: inline-block;
+    list-style-type: none;
+    width: 15%;
+    margin: 0 auto 0 auto;
+    text-align:center;
+    padding: 10px;
+    align-content: center;
+    background-color: #4a525a;
+    
+    
+}
+footer p{
+    width: 100%;
+    text-align: center;
+}
+fieldset{
+    border: none;
+    border-top: solid thick #06d6a0;
+}
+fieldset legend{
+    border-bottom: thick solid #06d6a0;
+    background-color: #05668d;
+    border-left: thick solid white;
+    border-right: thick solid white;
+    border-top: thick solid #06d6a0;
+}
+#lst{
+    border:none;
+    background-color: transparent;
+    padding-bottom: 20px
+}
+#lstLegend{
+    border-bottom: thick solid #06d6a0;
+    background-color: #05668d;
+    border-left: thick solid white;
+    border-right: thick solid white;
+    border-top: thick solid #06d6a0;
+}
+#txtwriteMessage input{
+    width:100%;
+    color: black;
+    background-color: white;
+}
+header figure{
+    text-align: center;
+}
+p{
+    font-variant:none;
+    
+}
+.buttons{
+    text-align: center;
+}
+.mistake{
+    color: red;
+}
+#errors ol li{
+    color: red;
+}
+.radio p{
+    display: inline-block;
+}
+.listbox{
+    padding-bottom: 20px;
+}
+
+/*stuff for the pictures xdddd ###############################################*/
+
+.container {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-65%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #05668d;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.container{
+    padding: 50px;
+}
+/* stuff for the album pages */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #05668d;
+}
+
+tr:hover{
+    background-color: darkgray;
+}
+
+
