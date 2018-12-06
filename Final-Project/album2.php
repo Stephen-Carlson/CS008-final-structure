@@ -6,7 +6,7 @@ include ('top.php');   //includes the top
 <article class = "Album2">
     <h1>Our Second Album</h1>
     <figure>
-        <img src="../album_pics/album2.jpeg" alt="Light and Stuff Album">
+        <img src="album_pics/album2.png" alt="Light and Stuff Album">
         <figcaption>Light and Stuff, 2018</figcaption>
     </figure>   
     

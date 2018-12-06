@@ -5,7 +5,7 @@ include ('top.php');   //includes the top
 <article class = "Album4">
     <h1>Our Fourth Album</h1>
     <figure>
-        <img src="../album_pics/album4.png" alt="Bottom Text Album">
+        <img src="album_pics/album4.png" alt="Bottom Text Album">
         <figcaption>Bottom text, 2018</figcaption>
     </figure>   
     

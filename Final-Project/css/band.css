@@ -242,3 +242,9 @@ li.activePage{
      display: inline-block;
     list-style-type: none;
 }
+#index figure{
+    text-align:center;
+}
+#tourbanner img{
+    max-width:100%
+}
