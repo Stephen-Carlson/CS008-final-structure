@@ -12,7 +12,7 @@ header{
     background: url(../images/bannerpic.jpg)no-repeat center center;
     width:100%;
     background-size: 100%;
-    border-radius:1.5em;
+    
 }
 image{
     max-width: 100%;
@@ -235,7 +235,7 @@ tr:hover{
     background-color:  #05668d; 
     color:white;
 }
-.activepage{
+li.activePage{
     background-color: #06d6a0
 }
 #nav ol {
