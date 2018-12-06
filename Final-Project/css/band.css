@@ -39,21 +39,18 @@ span{
     border-bottom: solid thick #06d6a0;
     border-left: solid thick white;
 }
-nav ol li{
-    font-variant: small-caps;
-    display: inline-block;
+nav ul li{
+    width: 15%;
+    display:inline-block;
     list-style-type: none;
-    width: 14%;
-    margin: 0 auto 0 auto;
     text-align:center;
-    padding: 10px;
-    align-content: center;
     background-color: #4a525a;
     border: medium solid white;
     border-radius:2.5em;
-    padding-left: 18px;
+    
 }
-nav ol li:hover{
+nav ul li:hover{
+    
     background-color: #06d6a0
 }
 .activepage{
@@ -73,6 +70,10 @@ fieldset legend{
     border-left: thick solid white;
     border-right: thick solid white;
     border-top: thick solid #06d6a0;
+}
+textarea {
+    color:black;
+    display:block;
 }
 #lst{
     border:none;
@@ -106,6 +107,7 @@ figcaption{
 }
 .buttons{
     text-align: center;
+    color:white;
 }
 .mistake{
     color: red;
@@ -122,6 +124,9 @@ figcaption{
 }
 #lstState{
     color:black;
+}
+#txtEmail input{
+    width:400px;
 }
 
 /*stuff for the pictures xdddd ###############################################*/
@@ -228,4 +233,12 @@ tr:hover{
 }
 #btnSubmit{
     background-color:  #05668d; 
+    color:white;
+}
+.activepage{
+    background-color: #06d6a0
+}
+#nav ol {
+     display: inline-block;
+    list-style-type: none;
 }

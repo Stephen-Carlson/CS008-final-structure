@@ -3,9 +3,6 @@ include 'top.php';
 
 print PHP_EOL . '<!-- SECTION: 1a. debugging setup -->' . PHP_EOL;
 
-print '<p>Post Array:</p><pre>';
-print_r($_POST);
-print '</pre>';
 print PHP_EOL . '<!-- SECTION: 1b form variables -->' . PHP_EOL;
 $states = array('Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinios','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachesetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','Wisconsin','West Virginia','Wyoming', 'Outside US');
 
@@ -115,7 +112,12 @@ if (isset($_POST["btnSubmit"])) {
         $errorMsg[] = "Please select your state";
         $stateNameERROR = true;
     }
-
+    if($writeMessage != ''){
+        if(!verifyAlphaNum($writeMessage)){
+            $errorMsg[] = "your comments seem to have extra characters";
+            $writeMessageERROR = true;
+        }
+    }
     print PHP_EOL . '<!-- SECTION: 2d Process Form - Passed Validation -->' . PHP_EOL;
        
     if (!$errorMsg) {
@@ -151,7 +153,7 @@ if (isset($_POST["btnSubmit"])) {
 
         print PHP_EOL . '<!-- SECTION: 2f Create message -->' . PHP_EOL;
        
-        $message = '<h2 style=font-family:Jazz LET, fantasy>Your Information.</h2><p>Thanks for doing the thing! It really helps!</p>';
+        $message = '<h2>Your Information.</h2><p>Thanks for keeping in touch! look forward to a show near you soon!</p><p>Love,</p><p>The Schtick</p>';
 
         foreach ($_POST as $htmlName => $value) {
             $message .= '<p>';
@@ -171,7 +173,7 @@ if (isset($_POST["btnSubmit"])) {
         $to = $email;
         $cc = '';
         $bcc = '';
-        $from = 'Steve Carlson Website<shcarlso@uvm.edu'
+        $from = 'The Schtick<outreach@theschtick.com>'
                 . '>';
         // subject of mail should make sense for your form
         $subject = 'Registration';
@@ -261,18 +263,14 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                            value="<?php print $firstName; ?>"
                            >
                    <p>
-                    <label class="required" for="txtwriteMessage">Write us a Message!</label>
-                    <input
-                    <?php if ($writeMessageERROR) print 'class="mistake"'; ?>
-                        id="txtwriteMessage"
-                        maxlength="148"
-                        name="txtwriteMessage"
-                        onfocus="this.select()"
-                        placeholder ="Tell us something!"
-                        tabindex="30"
-                        type="text"
-                        value="<?php print $writeMessage ?>"
-                        >
+                   <label class = "required"for="txtWriteMessage">Write us a Message!</label>
+                   <textarea <?php if($writeMessageERROR) print 'class="mistake"'; ?>
+                       id="txtWriteMessage"
+                       name="txtWriteMessage"
+                       onfocus="this.select()"
+                       placeholder="Got Comments? Write 'em here!"
+                       tabindex="30"><?php print $writeMessage; ?></textarea>
+                       
                     </p>
                     <fieldset class ="checkbox <?php if ($findERROR) print 'mistake';?>">
                                 <legend>How did you find us?</legend>
@@ -335,7 +333,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                             <label class="radio-field">
                                 <input type="radio"
                                        id="radContactAll"
-                                       name="radContactAll"
+                                       name="radContact"
                                        value="All Emails"
                                        tabindex="90"
                                        <?php if($contact == "All Emails") echo 'checked= "checked"'; ?>>All Emails</label>
@@ -344,7 +342,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                             <label class="radio-field">
                                 <input type="radio"
                                        id="radContactLimit"
-                                       name="RadContactLimit"
+                                       name="radContact"
                                        value="Limited Emails"
                                        tabindex="100"
                                        <?php if($contact =="Limited Emails") echo 'checked= "checked"'; ?>>Limited Emails</label>
@@ -353,7 +351,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                             <label class="radio-field">
                                 <input type="radio"
                                        id="radContactNone"
-                                       name="radContactNone"
+                                       name="radContact"
                                        value="No Emails"
                                        tabindex="110"
                                        <?php if($contact == "No Emails") echo 'checked= "checked"'; ?>>No Emails</label>

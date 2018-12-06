@@ -1,5 +1,5 @@
 <nav>
-    <ol>
+    <ul>
         <?php
         
         print '<li class ="';
@@ -23,7 +23,7 @@
             print 'activePage';
         }
         print '">';
-        print '<a href="join.php">Stay Connected</a>'; 
+        print '<a href="join.php">Join Us</a>'; 
         print '</li>';PHP_EOL;
         
         print '<li class ="';
@@ -52,5 +52,5 @@
         print '</li>';PHP_EOL;
         ?>
 
-    </ol>
+    </ul>
 </nav>
