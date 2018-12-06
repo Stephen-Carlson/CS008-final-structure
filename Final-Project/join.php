@@ -7,7 +7,7 @@ print '<p>Post Array:</p><pre>';
 print_r($_POST);
 print '</pre>';
 print PHP_EOL . '<!-- SECTION: 1b form variables -->' . PHP_EOL;
-$states = array('','Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinios','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachesetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','Wisconsin','West Virginia','Wyoming', 'Outside US');
+$states = array('Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinios','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachesetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','Wisconsin','West Virginia','Wyoming', 'Outside US');
 
 
 $contact='All Emails';
@@ -18,7 +18,7 @@ $findOther = false;
 $writeMessage = '';
 $firstName - '';
 $email = '';
-$stateName = '';
+$stateName = 'Alabama';
 
 print PHP_EOL . '<!-- SECTION: 1c form error flags -->' . PHP_EOL;
 
@@ -26,10 +26,9 @@ $emailERROR = false;
 $contactERROR = false;
 $findERROR = false;
 $totalChecked = 0;
-$stateNameERROR = false;
 $writeMessageERROR = false;
 $firstNameERROR = false;
-
+$stateNameERROR = false;
 
 print PHP_EOL . '<!-- SECTION: 1d misc variables -->' . PHP_EOL;
 
@@ -56,11 +55,10 @@ if (isset($_POST["btnSubmit"])) {
     print PHP_EOL . '<!-- SECTION: 2b Sanitize (clean) data  -->' . PHP_EOL;
     
     $contact = htmlentities($_POST['radAge'], ENT_QUOTES, "UTF-8");
-    $stateName = htmlentities($_POST["lstState"], ENT_QUOTES, "UTF-8");
     $writeMessage = htmlentities($_POST["txtwriteMessage"], ENT_QUOTES, "UTF-8");
     $firstName = htmlentities($_POST["txtFirstName"], ENT_QUOTES, "UTF-8");
     $email = filter_var($_POST["txtEmail"], FILTER_SANITIZE_EMAIL);
-
+    $stateName = htmlentities($_POST["lstState"], ENT_QUOTES, "UTF-8");
 
 
 
@@ -99,10 +97,6 @@ if (isset($_POST["btnSubmit"])) {
         $errorMsg[] = "Please Select how you found us!";
         $contactERROR = true;
     }
-    if ($stateName == "") {
-        $errorMsg[] = "Please Choose your State";
-        $stateNameERROR = true;
-    }
     if ($firstName == "") {
         $errorMsg[] = "Please enter your first name";
         $firstNameERROR = true;
@@ -116,6 +110,10 @@ if (isset($_POST["btnSubmit"])) {
     } elseif (!verifyEmail($email)) {
         $errorMsg[] = 'Your email address appears to be incorrect.';
         $emailERROR = true;
+    }
+    if($stateName == ""){
+        $errorMsg[] = "Please select your state";
+        $stateNameERROR = true;
     }
 
     print PHP_EOL . '<!-- SECTION: 2d Process Form - Passed Validation -->' . PHP_EOL;
@@ -137,7 +135,7 @@ if (isset($_POST["btnSubmit"])) {
         $dataRecord[] = $findOther;
         $dataRecord[] = $firstName;
         $dataRecord[] = $writeMessage;
-        $dataRecord[] = $stateName;
+        $dataRecord[]= $stateName;
         $dataRecord[] = $email;
 
         // Setup CSV File
@@ -314,24 +312,23 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                                             type="checkbox"
                                             value="Other">Other</label>
                             </p>
-                            </fieldset>
-                    <fieldset class="listbox <?php if ($stateNameERROR) print "mistake"; ?>">
-                        <p>
-                        <legend id='lst'><span id='lstLegend'>What State are you from?</span></legend>
-                        <select id="lstState"
-                                name="lstState"
-                                tabindex="80">
-                            <?php
-                            foreach($states as $state) {?>
-                            <option <?php if($stateName == $state) print "selected";?> value="<?php $state?>"><?= $state ?></option>
-                            <?php
-                            } ?>
-                               
-                            
-                        </select>
-                    </p>
                     </fieldset>
-
+                   <fieldset class="listbox <?php if($stateNameERROR) print'mistake';?>">
+                       <p>
+                       <legend>State</legend>
+                       <select id="lstState"
+                               name="lstState"
+                               tabindex="80">
+                                   <?php
+                                   foreach($states as $state){ ?>
+                           <option value="<?php print $state ?>"><?= $state ?></option>
+                           <?php
+                                   } ?>
+                                   
+                       </select>
+                   </p>
+                   </fieldset>
+                      
                     <fieldset class="radio <?php if($contactERROR) print 'mistake';?>">
                         <legend>How would you like to be contacted?</legend>
                         <p>
@@ -360,7 +357,8 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                                        value="No Emails"
                                        tabindex="110"
                                        <?php if($contact == "No Emails") echo 'checked= "checked"'; ?>>No Emails</label>
-                                       </p>               
+                                       </p>    
+                                       
                     
                     
                     

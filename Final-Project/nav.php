@@ -23,7 +23,7 @@
             print 'activePage';
         }
         print '">';
-        print '<a href="join.php">Join</a>'; 
+        print '<a href="join.php">Stay Connected</a>'; 
         print '</li>';PHP_EOL;
         
         print '<li class ="';
