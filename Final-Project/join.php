@@ -250,7 +250,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                     </p>
                     <p>
                     </fieldset>
-                    <label class ="required" for="txtFirstName">First Name</label>
+                    <label class = "required" for="txtFirstName">First Name</label>
                     <input autofocus
                     <?php if ($firstNameERROR) print 'class = "mistake"'; ?>
                            id = "txtFirstName"
@@ -263,7 +263,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                            value="<?php print $firstName; ?>"
                            >
                    <p>
-                   <label class = "required"for="txtWriteMessage">Write us a Message!</label>
+                   <label class = "required" for="txtWriteMessage">Write us a Message!</label>
                    <textarea <?php if($writeMessageERROR) print 'class="mistake"'; ?>
                        id="txtWriteMessage"
                        name="txtWriteMessage"
@@ -272,7 +272,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                        tabindex="30"><?php print $writeMessage; ?></textarea>
                        
                     </p>
-                    <fieldset class ="checkbox <?php if ($findERROR) print 'mistake';?>">
+                    <fieldset class = "checkbox <?php if ($findERROR) print 'mistake';?>">
                                 <legend>How did you find us?</legend>
                                 <p>
                                     <label class="check-field">
@@ -312,7 +312,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                             </p>
                     </fieldset>
                    <fieldset class="listbox <?php if($stateNameERROR) print'mistake';?>">
-                       <p>
+           
                        <legend>State</legend>
                        <select id="lstState"
                                name="lstState"
@@ -324,7 +324,7 @@ print PHP_EOL . '<!-- SECTION 3 Display Form -->' . PHP_EOL;
                                    } ?>
                                    
                        </select>
-                   </p>
+                   
                    </fieldset>
                       
                     <fieldset class="radio <?php if($contactERROR) print 'mistake';?>">
