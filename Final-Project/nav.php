@@ -3,11 +3,11 @@
         <?php
         
         print '<li class ="';
-        if ($pathparts['filename'] == 'home') {
+        if ($pathparts['filename'] == 'index') {
             print 'activePage ';
         }
         print '">';
-        print '<a href="home.php">Home</a>';
+        print '<a href="index.php">Home</a>';
         print '</li>';PHP_EOL;
         
         print '<li class ="';
